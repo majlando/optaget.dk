@@ -3,14 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#14563f" />
 
-  <!-- No-flash: sæt tema + sprog før render -->
+  <!-- No-flash: sæt tema + sprog (+ browser-bjælkens farve) før render -->
   <script>
     (function () {
       try {
         var t = localStorage.getItem("optaget-theme");
         if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         document.documentElement.setAttribute("data-theme", t);
+
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (!meta) {
+          meta = document.createElement("meta");
+          meta.setAttribute("name", "theme-color");
+          document.head.appendChild(meta);
+        }
+        meta.setAttribute("content", t === "dark" ? "#16140e" : "#14563f");
 
         var l = localStorage.getItem("optaget-lang");
         if (!l) {
@@ -24,8 +33,6 @@
 
   <title>Optaget.dk — Din enkle guide til studieoptag i Danmark</title>
   <meta name="description" content="En enkel, gratis guide til at blive optaget på en videregående uddannelse i Danmark: kvote 1, kvote 2, vigtige datoer og sådan søger du trin for trin på optagelse.dk." />
-  <meta name="theme-color" content="#14563f" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#16140e" media="(prefers-color-scheme: dark)" />
 
   <meta property="og:title" content="Optaget.dk — Din enkle guide til studieoptag" />
   <meta property="og:description" content="Kvote 1 og 2, vigtige frister og sådan søger du trin for trin på optagelse.dk." />
@@ -49,7 +56,7 @@
 
   <link rel="stylesheet" href="assets/styles.css" />
 
-  <!-- Strukturerede data: hjemmeside + FAQ (kan give rich results i Google) -->
+  <!-- Strukturerede data (schema.org): WebSite + HowTo + FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -141,7 +148,7 @@
       </a>
 
       <div class="header-right">
-        <nav class="site-nav" aria-label="Hovedmenu">
+        <nav class="site-nav" aria-label="Hovedmenu" data-i18n-aria="a11y.nav">
           <ul class="nav-list" id="nav-list">
             <li><a href="#sadan-virker-det" data-i18n="nav.how">Sådan virker det</a></li>
             <li><a href="#kvoter" data-i18n="nav.quotas">Kvote 1 &amp; 2</a></li>
@@ -168,7 +175,7 @@
             </svg>
           </button>
 
-          <button class="icon-btn nav-toggle" aria-expanded="false" aria-controls="nav-list"
+          <button type="button" class="icon-btn nav-toggle" aria-expanded="false" aria-controls="nav-list"
                   aria-label="Åbn menu" data-i18n-aria="a11y.menu">
             <span class="nav-toggle-bar" aria-hidden="true"></span>
           </button>
@@ -201,7 +208,7 @@
           <p class="hero-note" data-i18n="hero.note">Ingen login, ingen reklamer — bare en ærlig forklaring.</p>
         </div>
 
-        <aside class="hero-card" aria-label="Hurtigt overblik">
+        <aside class="hero-card" aria-label="Hurtigt overblik" data-i18n-aria="a11y.overview">
           <h2 class="card-title" data-i18n="hero.cardTitle">På 30 sekunder</h2>
           <ul class="quick-list">
             <li data-i18n-html="hero.q1"><strong>Hvor?</strong> Alle ansøgninger sker på <span class="nowrap">optagelse.dk</span> med MitID.</li>
@@ -457,8 +464,8 @@
         <p data-i18n="foot.desc">En uafhængig, gratis guide til studieoptag i Danmark.</p>
       </div>
 
-      <nav class="footer-links" aria-label="Officielle kilder">
-        <h3 data-i18n="foot.sources">Officielle kilder</h3>
+      <nav class="footer-links" aria-labelledby="foot-sources-title">
+        <h3 id="foot-sources-title" data-i18n="foot.sources">Officielle kilder</h3>
         <ul>
           <li><a href="https://optagelse.dk" target="_blank" rel="noopener">optagelse.dk</a> — <span data-i18n="foot.s1">søg ind</span></li>
           <li><a href="https://www.ug.dk" target="_blank" rel="noopener">ug.dk</a> — <span data-i18n="foot.s2">UddannelsesGuiden &amp; adgangskvotienter</span></li>

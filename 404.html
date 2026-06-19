@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#14563f" />
 
   <!-- No-flash: sæt tema + sprog før render (samme nøgler som forsiden) -->
   <script>
@@ -11,6 +12,8 @@
         var t = localStorage.getItem("optaget-theme");
         if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
         document.documentElement.setAttribute("data-theme", t);
+        var meta = document.querySelector('meta[name="theme-color"]');
+        if (meta) meta.setAttribute("content", t === "dark" ? "#16140e" : "#14563f");
         var l = localStorage.getItem("optaget-lang");
         if (!l) {
           var langs = navigator.languages || [navigator.language || "da"];

@@ -7,6 +7,8 @@ window.I18N = {
     "a11y.skip": "Spring til indhold",
     "a11y.menu": "Åbn menu",
     "a11y.theme": "Skift mellem lys og mørk",
+    "a11y.nav": "Hovedmenu",
+    "a11y.overview": "Hurtigt overblik",
 
     "nav.how": "Sådan virker det",
     "nav.quotas": "Kvote 1 & 2",
@@ -137,6 +139,8 @@ window.I18N = {
     "a11y.skip": "Skip to content",
     "a11y.menu": "Open menu",
     "a11y.theme": "Switch between light and dark",
+    "a11y.nav": "Main menu",
+    "a11y.overview": "Quick overview",
 
     "nav.how": "How it works",
     "nav.quotas": "Quota 1 & 2",

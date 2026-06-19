@@ -119,7 +119,10 @@
 
   /* ---------- Tema ---------- */
   function setTheme(theme, persist) {
-    root.setAttribute("data-theme", theme === "dark" ? "dark" : "light");
+    theme = theme === "dark" ? "dark" : "light";
+    root.setAttribute("data-theme", theme);
+    var tc = document.querySelector('meta[name="theme-color"]');
+    if (tc) tc.setAttribute("content", theme === "dark" ? "#16140e" : "#14563f");
     if (persist) {
       try { localStorage.setItem(THEME_KEY, theme); } catch (e) {}
     }
@@ -147,14 +150,30 @@
   var toggle = document.querySelector(".nav-toggle");
   var list = document.getElementById("nav-list");
   if (toggle && list) {
+    var closeMenu = function () {
+      if (!list.classList.contains("is-open")) return;
+      list.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "false");
+    };
     toggle.addEventListener("click", function () {
       var open = list.classList.toggle("is-open");
       toggle.setAttribute("aria-expanded", String(open));
     });
+    // Luk ved klik på et link
     list.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        list.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
+      if (e.target.tagName === "A") closeMenu();
+    });
+    // Luk på Escape (og flyt fokus tilbage til knappen)
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && list.classList.contains("is-open")) {
+        closeMenu();
+        toggle.focus();
+      }
+    });
+    // Luk ved klik uden for headeren
+    document.addEventListener("click", function (e) {
+      if (list.classList.contains("is-open") && !e.target.closest(".site-header")) {
+        closeMenu();
       }
     });
   }

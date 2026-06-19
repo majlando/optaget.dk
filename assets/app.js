@@ -146,6 +146,18 @@
     }
   );
 
+  /* ---------- Brand-logo: tilbage til toppen ---------- */
+  var brand = document.querySelector(".brand");
+  if (brand) {
+    brand.addEventListener("click", function (e) {
+      e.preventDefault();
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+      // Fjern et evt. #-fragment fra URL'en
+      if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+    });
+  }
+
   /* ---------- Mobilmenu ---------- */
   var toggle = document.querySelector(".nav-toggle");
   var list = document.getElementById("nav-list");

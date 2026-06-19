@@ -150,10 +150,13 @@
       <div class="header-right">
         <nav class="site-nav" aria-label="Hovedmenu" data-i18n-aria="a11y.nav">
           <ul class="nav-list" id="nav-list">
-            <li><a href="#how-it-works" data-i18n="nav.how">Sådan virker det</a></li>
-            <li><a href="#quotas" data-i18n="nav.quotas">Kvote 1 &amp; 2</a></li>
+            <li><a href="#how-it-works" data-i18n="nav.how">Overblik</a></li>
+            <li><a href="#education-types" data-i18n="nav.types">Uddannelser</a></li>
+            <li><a href="#quotas" data-i18n="nav.quotas">Kvoter</a></li>
+            <li><a href="#requirements" data-i18n="nav.requirements">Adgangskrav</a></li>
             <li><a href="#dates" data-i18n="nav.dates">Datoer</a></li>
-            <li><a href="#apply" data-i18n="nav.apply">Søg trin for trin</a></li>
+            <li><a href="#apply" data-i18n="nav.apply">Ansøgning</a></li>
+            <li><a href="#glossary" data-i18n="nav.glossary">Ordliste</a></li>
             <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
           </ul>
         </nav>
@@ -259,8 +262,40 @@
       </div>
     </section>
 
+    <!-- UDDANNELSESTYPER -->
+    <section id="education-types" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-i18n="ut.eyebrow">Hvad kan du læse?</p>
+          <h2 data-i18n="ut.h2">Typer af videregående uddannelser</h2>
+          <p class="section-intro" data-i18n="ut.intro">De videregående uddannelser falder i tre hovedtyper. De varierer i længde og i, hvor praksisnære eller akademiske de er.</p>
+        </header>
+        <div class="types-grid">
+          <article class="feature type-card">
+            <span class="type-dur" data-i18n="ut.c1.dur">2–2½ år</span>
+            <h3 data-i18n="ut.c1.t">Erhvervsakademi (EA)</h3>
+            <p data-i18n="ut.c1.d">Korte, praksisnære uddannelser med tæt kontakt til erhvervslivet og praktik undervejs.</p>
+            <p class="type-ex" data-i18n="ut.c1.ex">Fx datamatiker, finansøkonom, markedsføringsøkonom.</p>
+          </article>
+          <article class="feature type-card">
+            <span class="type-dur" data-i18n="ut.c2.dur">3–4½ år</span>
+            <h3 data-i18n="ut.c2.t">Professionsbachelor</h3>
+            <p data-i18n="ut.c2.d">Mellemlange uddannelser, der kombinerer teori med praktik og retter sig mod et bestemt erhverv.</p>
+            <p class="type-ex" data-i18n="ut.c2.ex">Fx sygeplejerske, lærer, pædagog, diplomingeniør.</p>
+          </article>
+          <article class="feature type-card">
+            <span class="type-dur" data-i18n="ut.c3.dur">3 + 2 år</span>
+            <h3 data-i18n="ut.c3.t">Universitet (bachelor + kandidat)</h3>
+            <p data-i18n="ut.c3.d">Akademiske, forskningsbaserede uddannelser. Bacheloren bygges typisk videre med en kandidat.</p>
+            <p class="type-ex" data-i18n="ut.c3.ex">Fx jura, medicin, økonomi, datalogi.</p>
+          </article>
+        </div>
+        <p class="section-source" data-i18n="ut.note">Der findes også kunstneriske og maritime uddannelser med deres egne optagelsesregler.</p>
+      </div>
+    </section>
+
     <!-- KVOTER -->
-    <section id="quotas" class="section section-alt">
+    <section id="quotas" class="section">
       <div class="container">
         <header class="section-head">
           <p class="eyebrow" data-i18n="q.eyebrow">De to veje ind</p>
@@ -304,6 +339,40 @@
             </ul>
             <p class="kvote-foot" data-i18n="q2.foot">Bedst hvis: du har relevant erfaring eller et snit lidt under kravet.</p>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ADGANGSKRAV -->
+    <section id="requirements" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-i18n="req.eyebrow">Hvad skal du opfylde?</p>
+          <h2 data-i18n="req.h2">Adgangskravene — kort fortalt</h2>
+          <p class="section-intro" data-i18n="req.intro">For at blive optaget skal du opfylde to slags krav. Tjek dem altid på den enkelte uddannelse, før du søger.</p>
+        </header>
+
+        <div class="kvote-grid">
+          <article class="kvote-card">
+            <div class="kvote-tag" data-i18n="req.gen.tag">Generelle</div>
+            <h3 data-i18n="req.gen.t">En adgangsgivende eksamen</h3>
+            <p data-i18n="req.gen.d">Du skal have en gymnasial eksamen — STX, HHX, HTX, HF eller EUX — eller en tilsvarende udenlandsk eksamen.</p>
+          </article>
+          <article class="kvote-card">
+            <div class="kvote-tag" data-i18n="req.spec.tag">Specifikke</div>
+            <h3 data-i18n="req.spec.t">Bestemte fag på bestemte niveauer</h3>
+            <p data-i18n="req.spec.d">Mange uddannelser kræver bestemte fag på et bestemt niveau — fx Matematik B eller Engelsk B. Nogle kræver også en minimumskarakter i et fag eller et bestemt snit.</p>
+          </article>
+        </div>
+
+        <div class="levels">
+          <h3 class="levels-title" data-i18n="req.levels.h">Fagniveauer: A, B og C</h3>
+          <ul class="level-list">
+            <li><span class="level-badge" aria-hidden="true">C</span><span data-i18n="req.levelC">Grundniveau — typisk 1 år.</span></li>
+            <li><span class="level-badge" aria-hidden="true">B</span><span data-i18n="req.levelB">Bygger oven på C — typisk 2 år.</span></li>
+            <li><span class="level-badge" aria-hidden="true">A</span><span data-i18n="req.levelA">Det højeste niveau — typisk 3 år.</span></li>
+          </ul>
+          <p class="levels-note" data-i18n="req.gsk">Mangler du et fag, et niveau eller en karakter, kan du supplere bagefter med GSK (gymnasial supplering).</p>
         </div>
       </div>
     </section>
@@ -443,6 +512,29 @@
       </div>
     </section>
 
+    <!-- ORDLISTE -->
+    <section id="glossary" class="section section-alt">
+      <div class="container container-narrow">
+        <header class="section-head">
+          <p class="eyebrow" data-i18n="gl.eyebrow">Forklaring på fagord</p>
+          <h2 data-i18n="gl.h2">Ordliste</h2>
+          <p class="section-intro" data-i18n="gl.intro">De ord, du støder på undervejs — kort forklaret.</p>
+        </header>
+        <dl class="glossary">
+          <div class="gl-item"><dt data-i18n="gl.kot.t">KOT — Den Koordinerede Tilmelding</dt><dd data-i18n="gl.kot.d">Systemet, der koordinerer optagelsen, så du højst får tilbudt én plads: den højest prioriterede, du kan komme ind på.</dd></div>
+          <div class="gl-item"><dt data-i18n="gl.kvotient.t">Adgangskvotient</dt><dd data-i18n="gl.kvotient.d">Det laveste karaktergennemsnit, der gav adgang til en uddannelse i kvote 1 sidste år. Den fastsættes ikke på forhånd.</dd></div>
+          <div class="gl-item"><dt data-i18n="gl.kvote1.t">Kvote 1</dt><dd data-i18n="gl.kvote1.d">Optagelse alene på dit gennemsnit fra den adgangsgivende eksamen.</dd></div>
+          <div class="gl-item"><dt data-i18n="gl.kvote2.t">Kvote 2</dt><dd data-i18n="gl.kvote2.d">Optagelse på en helhedsvurdering: karakterer, erhvervserfaring, motiveret ansøgning, ophold m.m.</dd></div>
+          <div class="gl-item"><dt data-i18n="gl.standby.t">Standby</dt><dd data-i18n="gl.standby.d">Et tilbud om en plads, hvis en bliver ledig — ellers garanteret optagelse året efter, hvis du takker ja.</dd></div>
+          <div class="gl-item"><dt data-i18n="gl.omr.t">Optagelsesområdenummer</dt><dd data-i18n="gl.omr.d">Et nummer, der entydigt identificerer en bestemt uddannelse på et bestemt sted, når du søger.</dd></div>
+          <div class="gl-item"><dt data-i18n="gl.eksamen.t">Adgangsgivende eksamen</dt><dd data-i18n="gl.eksamen.d">Den gymnasiale eksamen (fx STX, HHX, HTX, HF, EUX), der giver adgang til en videregående uddannelse.</dd></div>
+          <div class="gl-item"><dt data-i18n="gl.spec.t">Specifikke adgangskrav</dt><dd data-i18n="gl.spec.d">Bestemte fag på bestemte niveauer (A, B eller C), som en uddannelse kræver, du har bestået.</dd></div>
+          <div class="gl-item"><dt data-i18n="gl.gsk.t">GSK — gymnasial supplering</dt><dd data-i18n="gl.gsk.d">Kurser, du kan tage for at hæve et fag, et niveau eller en karakter, du mangler.</dd></div>
+          <div class="gl-item"><dt data-i18n="gl.mitid.t">MitID</dt><dd data-i18n="gl.mitid.d">Dit digitale login, som du bruger til at logge ind og underskrive din ansøgning på optagelse.dk.</dd></div>
+        </dl>
+      </div>
+    </section>
+
     <!-- CTA -->
     <section class="section closing">
       <div class="container container-narrow closing-inner">
@@ -489,5 +581,19 @@
 
   <script src="assets/i18n.js"></script>
   <script src="assets/app.js" defer></script>
+
+  <!-- Cookie-fri statistik (Cloudflare Web Analytics): ingen cookies, intet samtykke-banner.
+       Aktivér ved at indsætte din token fra Cloudflare-dashboardet. Tom token = intet indlæses. -->
+  <script>
+    (function () {
+      var token = ""; // <-- indsæt Cloudflare Web Analytics-token her
+      if (!token) return;
+      var s = document.createElement("script");
+      s.defer = true;
+      s.src = "https://static.cloudflareinsights.com/beacon.min.js";
+      s.setAttribute("data-cf-beacon", JSON.stringify({ token: token }));
+      document.head.appendChild(s);
+    })();
+  </script>
 </body>
 </html>

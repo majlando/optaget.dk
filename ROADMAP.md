@@ -16,10 +16,11 @@ Prioriteret plan for den videre udvikling. Afkryds efterhånden.
 - [ ] `hreflang` for DA/EN, hvis sprogene får separate URL'er
 
 ## 3. Mere indhold
-- [ ] Adgangskrav uddybet (generelle vs. specifikke, A/B/C-niveauer, karakterkrav)
+- [x] Adgangskrav uddybet (generelle vs. specifikke, A/B/C-niveauer, karakterkrav)
+- [x] Uddannelsestyper (erhvervsakademi / professionsbachelor / universitet)
+- [x] Ordliste med fagord (adgangskvotient, standby, KOT …)
 - [ ] Efter optagelse: SU, bolig, studiestart
 - [ ] Optagelsesprøver & samtaler (kvote 2 på nogle uddannelser)
-- [ ] Ordliste med fagord (adgangskvotient, standby, KOT …)
 - [x] "Sidst opdateret"-dato + tydelige kildehenvisninger
 
 ## 4. Funktioner
@@ -33,8 +34,9 @@ Prioriteret plan for den videre udvikling. Afkryds efterhånden.
 - [x] Tilgængeligheds-audit: WCAG AA-kontrast i begge temaer (+ `aria-current`)
 - [x] Print/PDF-venligt stylesheet (tvinger lyst tema, folder FAQ ud)
 - [x] Årlig vedligeholdelses-proces (`docs/VEDLIGEHOLD.md`)
-- [ ] Cookie-fri statistik (Plausible / Umami / Cloudflare Web Analytics)
+- [x] Cookie-fri statistik (Cloudflare Web Analytics-loader — klar, mangler kun token)
 - [ ] Lighthouse-audit: ydeevne + tilgængelighed
+- [ ] Google Search Console + Bing: verificér domæne (kræver token fra din konto)
 
 ## 6. Når indholdet vokser
 - [ ] Flersidet struktur

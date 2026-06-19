@@ -514,6 +514,44 @@ strong { font-weight: 600; }
 .faq details[open] summary::after { content: "–"; }
 .faq details p { margin: 0 0 16px; color: var(--ink-soft); }
 
+/* Uddannelsestyper */
+.types-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.type-dur {
+  display: inline-block; margin-bottom: 10px;
+  font-family: var(--sans); font-size: .8rem; font-weight: 600;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--accent-text);
+}
+.type-card .type-ex {
+  margin-top: .7rem; color: var(--muted); font-style: italic; font-size: .92rem;
+}
+
+/* Adgangskrav: fagniveauer */
+.levels {
+  margin-top: 24px; background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: clamp(22px, 3vw, 32px);
+}
+.levels-title { font-size: 1.15rem; margin-bottom: 1rem; }
+.level-list { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: 12px; }
+.level-list li { display: flex; align-items: center; gap: 12px; color: var(--ink-soft); }
+.level-badge {
+  flex: none; width: 30px; height: 30px; border-radius: 8px;
+  display: grid; place-items: center;
+  font-family: var(--serif); font-weight: 600;
+  background: var(--green-tint); color: var(--green);
+}
+.levels-note { margin: 0; font-size: .95rem; color: var(--muted); }
+
+/* Ordliste */
+.glossary { margin: 0; }
+.gl-item { padding: 18px 0; border-bottom: 1px solid var(--line); }
+.gl-item:first-child { padding-top: 0; }
+.gl-item:last-child { border-bottom: 0; padding-bottom: 0; }
+.glossary dt {
+  font-family: var(--serif); font-weight: 600; font-size: 1.1rem;
+  color: var(--ink); margin-bottom: .25em;
+}
+.glossary dd { margin: 0; color: var(--ink-soft); }
+
 /* Closing */
 .closing { text-align: center; }
 .closing-inner h2 { font-size: clamp(2rem, 4vw, 3rem); }
@@ -569,14 +607,8 @@ strong { font-weight: 600; }
 /* =========================================================
    Responsive
    ========================================================= */
-@media (max-width: 920px) {
-  .hero-grid { grid-template-columns: 1fr; }
-  .hero-card { order: 2; }
-  .feature-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 760px) {
-  body { font-size: 17px; }
+/* Saml navigationen i en menu, før de mange punkter overfylder linjen */
+@media (max-width: 1000px) {
   .nav-toggle { display: inline-grid; }
   .nav-list {
     position: absolute; left: 0; right: 0; top: 100%;
@@ -588,7 +620,17 @@ strong { font-weight: 600; }
   }
   .nav-list.is-open { display: flex; }
   .nav-list a { padding: 12px 14px; }
+}
 
+@media (max-width: 920px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-card { order: 2; }
+  .feature-grid { grid-template-columns: 1fr 1fr; }
+  .types-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 760px) {
+  body { font-size: 17px; }
   .feature-grid { grid-template-columns: 1fr; }
   .kvote-grid { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr; }

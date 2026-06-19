@@ -7,7 +7,7 @@ Prioriteret plan for den videre udvikling. Afkryds efterhånden.
 - [x] `CNAME` med `optaget.dk`
 - [ ] DNS pegt mod GitHub Pages hos domæneudbyder (A/AAAA + `www`-CNAME)
 - [ ] HTTPS slået til (når DNS er verificeret, sker automatisk)
-- [ ] `404.html` i samme stil
+- [x] `404.html` i samme stil
 
 ## 2. Synlighed & SEO
 - [x] Strukturerede data (JSON-LD: `WebSite` + `FAQPage`)
@@ -23,7 +23,7 @@ Prioriteret plan for den videre udvikling. Afkryds efterhånden.
 - [ ] "Sidst opdateret"-dato + tydelige kildehenvisninger
 
 ## 4. Funktioner
-- [ ] Nedtælling til næste frist (dynamisk dato)
+- [x] Nedtælling til næste frist (dynamisk dato) — chip i hero + "Næste frist"-badge i tidslinjen
 - [ ] Interaktiv ansøgnings-tjekliste (gemmes lokalt)
 - [ ] Del-knapper og evt. on-page-søgning
 

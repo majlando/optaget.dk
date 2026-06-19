@@ -40,6 +40,65 @@
       btn.setAttribute("aria-pressed", String(active));
       btn.classList.toggle("is-active", active);
     });
+
+    renderNextDeadline(lang);
+  }
+
+  /* ---------- Nedtælling til næste ansøgningsfrist ---------- */
+  // Faste frister (måned er 1-indekseret). Tjek altid optagelse.dk for året.
+  var DEADLINES = [
+    { key: "kvote2", month: 3, day: 15 },
+    { key: "kvote1", month: 7, day: 5 }
+  ];
+
+  function nextDeadline() {
+    var now = new Date();
+    var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    var best = null;
+    DEADLINES.forEach(function (d) {
+      var date = new Date(today.getFullYear(), d.month - 1, d.day);
+      if (date < today) date = new Date(today.getFullYear() + 1, d.month - 1, d.day);
+      var days = Math.round((date - today) / 86400000);
+      if (!best || days < best.days) best = { key: d.key, days: days };
+    });
+    return best;
+  }
+
+  function renderNextDeadline(lang) {
+    var nd = nextDeadline();
+    if (!nd) return;
+    var what = t(lang, "nd." + nd.key);
+    var tmpl =
+      nd.days === 0 ? t(lang, "nd.today")
+      : nd.days === 1 ? t(lang, "nd.day")
+      : t(lang, "nd.days");
+    var text = tmpl.replace("{n}", nd.days).replace("{what}", what);
+
+    var chip = document.querySelector("[data-next-deadline]");
+    if (chip) {
+      var span = chip.querySelector("[data-nd-text]");
+      if (span) span.textContent = text;
+      chip.removeAttribute("hidden");
+      chip.setAttribute("aria-label", text);
+    }
+
+    // Markér det matchende punkt i tidslinjen med en "Næste frist"-badge
+    document.querySelectorAll("[data-deadline]").forEach(function (item) {
+      var isNext = item.getAttribute("data-deadline") === nd.key;
+      item.classList.toggle("is-next", isNext);
+      var existing = item.querySelector(".nd-badge");
+      if (isNext) {
+        if (!existing) {
+          existing = document.createElement("span");
+          existing.className = "nd-badge";
+          var h3 = item.querySelector(".timeline-body h3");
+          if (h3) h3.appendChild(existing);
+        }
+        existing.textContent = t(lang, "nd.badge");
+      } else if (existing) {
+        existing.remove();
+      }
+    });
   }
 
   function setLang(lang, persist) {

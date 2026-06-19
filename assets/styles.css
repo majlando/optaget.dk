@@ -319,6 +319,32 @@ strong { font-weight: 600; }
 .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 1.6rem 0 1rem; }
 .hero-note { font-size: .9rem; color: var(--muted); margin: 0; }
 
+/* Nedtælling til næste frist */
+.next-deadline {
+  display: inline-flex; align-items: center; gap: 9px;
+  margin: 0 0 18px; padding: 7px 15px 7px 12px;
+  background: var(--accent-soft); color: var(--ink);
+  border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line));
+  border-radius: 999px; font-size: .9rem; font-weight: 600;
+  text-decoration: none;
+  transition: transform .12s ease, background .15s ease, border-color .15s ease;
+}
+.next-deadline:hover { transform: translateY(-1px); color: var(--ink); }
+.next-deadline[hidden] { display: none; }
+.nd-dot {
+  width: 9px; height: 9px; border-radius: 50%; background: var(--accent);
+  position: relative; flex: none;
+}
+.nd-dot::after {
+  content: ""; position: absolute; inset: 0; border-radius: 50%;
+  background: var(--accent); animation: nd-pulse 2.2s ease-out infinite;
+}
+@keyframes nd-pulse {
+  0%   { transform: scale(1); opacity: .55; }
+  70%  { transform: scale(2.6); opacity: 0; }
+  100% { opacity: 0; }
+}
+
 .hero-card {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -434,6 +460,14 @@ strong { font-weight: 600; }
   font-size: .85rem; color: var(--accent);
 }
 .timeline-body h3 { font-size: 1.2rem; margin-bottom: .2em; }
+.timeline-item.is-next::before { box-shadow: 0 0 0 4px var(--accent-soft); }
+.nd-badge {
+  display: inline-block; margin-left: 10px; vertical-align: middle;
+  font-family: var(--sans); font-size: .66rem; font-weight: 600;
+  letter-spacing: .04em; text-transform: uppercase;
+  color: var(--paper); background: var(--accent);
+  padding: 3px 9px; border-radius: 999px;
+}
 .timeline-body p { margin: 0; color: var(--ink-soft); font-size: .98rem; }
 
 /* Steps */

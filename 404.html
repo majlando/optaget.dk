@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- No-flash: sæt tema + sprog før render (samme nøgler som forsiden) -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("optaget-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+        var l = localStorage.getItem("optaget-lang");
+        if (!l) {
+          var langs = navigator.languages || [navigator.language || "da"];
+          l = langs.some(function (x) { return x && x.toLowerCase().indexOf("da") === 0; }) ? "da" : "en";
+        }
+        document.documentElement.setAttribute("lang", l);
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>404 — Siden findes ikke · Optaget.dk</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/styles.css" />
+
+  <style>
+    .nf-wrap {
+      min-height: 100vh; display: flex; flex-direction: column;
+    }
+    .nf-header { padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .nf-main {
+      flex: 1; display: grid; place-items: center; text-align: center;
+      padding: clamp(40px, 10vw, 100px) 0;
+    }
+    .nf-main .nf-code {
+      font-family: var(--serif); font-weight: 600;
+      font-size: clamp(5rem, 18vw, 11rem); line-height: 1;
+      color: var(--green); letter-spacing: -0.03em; margin: 0;
+    }
+    .nf-code .dot { color: var(--accent); }
+    .nf-main h1 { font-size: clamp(1.6rem, 4vw, 2.4rem); margin: .3em 0 .3em; }
+    .nf-main p:not(.nf-code) { color: var(--ink-soft); font-size: 1.1rem; max-width: 46ch; margin: 0 auto 1.8rem; }
+  </style>
+</head>
+<body>
+  <div class="nf-wrap">
+    <header class="nf-header">
+      <div class="container">
+        <a class="brand" href="/" aria-label="Optaget.dk">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-name">optaget<span class="brand-dot">.dk</span></span>
+        </a>
+      </div>
+    </header>
+
+    <main class="nf-main">
+      <div class="container">
+        <p class="nf-code">404<span class="dot">.</span></p>
+        <h1 data-nf="title">Siden findes ikke</h1>
+        <p data-nf="body">Vi kunne ikke finde den side, du leder efter. Den er måske flyttet — eller har aldrig eksisteret.</p>
+        <a class="btn btn-primary" href="/" data-nf="cta">Tilbage til forsiden</a>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      var STR = {
+        da: {
+          title: "Siden findes ikke",
+          body: "Vi kunne ikke finde den side, du leder efter. Den er måske flyttet — eller har aldrig eksisteret.",
+          cta: "Tilbage til forsiden"
+        },
+        en: {
+          title: "Page not found",
+          body: "We couldn't find the page you're looking for. It may have moved — or never existed.",
+          cta: "Back to the homepage"
+        }
+      };
+      var lang = document.documentElement.getAttribute("lang") === "en" ? "en" : "da";
+      document.title = (lang === "en" ? "404 — Page not found" : "404 — Siden findes ikke") + " · Optaget.dk";
+      document.querySelectorAll("[data-nf]").forEach(function (el) {
+        var v = STR[lang][el.getAttribute("data-nf")];
+        if (v) el.textContent = v;
+      });
+    })();
+  </script>
+</body>
+</html>

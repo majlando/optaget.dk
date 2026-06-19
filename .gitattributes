@@ -1,0 +1,7 @@
+# Normalisér linjeskift: tekstfiler gemmes med LF i repoet
+* text=auto eol=lf
+
+# Binære filer (lad Git håndtere dem som binære)
+*.png binary
+*.jpg binary
+*.ico binary

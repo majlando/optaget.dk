@@ -124,6 +124,7 @@ window.I18N = {
     "foot.sources": "Officielle kilder",
     "foot.s1": "søg ind",
     "foot.s2": "UddannelsesGuiden & adgangskvotienter",
+    "foot.s3": "officiel statistik",
     "foot.note": "<strong>Bemærk:</strong> Optaget.dk er ikke en offentlig myndighed. Datoer og regler kan ændre sig — bekræft altid de gældende oplysninger på optagelse.dk, før du handler.",
     "foot.updated": "Sidst opdateret juni 2026",
     "foot.toTop": "Til toppen ↑"
@@ -253,6 +254,7 @@ window.I18N = {
     "foot.sources": "Official sources",
     "foot.s1": "apply",
     "foot.s2": "the Education Guide & cut-offs",
+    "foot.s3": "official statistics",
     "foot.note": "<strong>Note:</strong> Optaget.dk is not a public authority. Dates and rules can change — always confirm the current information on optagelse.dk before acting.",
     "foot.updated": "Last updated June 2026",
     "foot.toTop": "Back to top ↑"

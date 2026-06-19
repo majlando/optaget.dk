@@ -174,7 +174,10 @@
           if (entry.isIntersecting) {
             var id = entry.target.id;
             links.forEach(function (a) {
-              a.classList.toggle("is-active", a.getAttribute("href") === "#" + id);
+              var active = a.getAttribute("href") === "#" + id;
+              a.classList.toggle("is-active", active);
+              if (active) a.setAttribute("aria-current", "true");
+              else a.removeAttribute("aria-current");
             });
           }
         });
@@ -183,6 +186,42 @@
     );
     sections.forEach(function (s) { observer.observe(s); });
   }
+
+  /* ---------- Læse-progressbar ---------- */
+  var bar = document.querySelector("[data-progress-bar]");
+  if (bar) {
+    var ticking = false;
+    var updateBar = function () {
+      var doc = document.documentElement;
+      var max = doc.scrollHeight - doc.clientHeight;
+      var ratio = max > 0 ? Math.min(1, Math.max(0, doc.scrollTop / max)) : 0;
+      bar.style.transform = "scaleX(" + ratio + ")";
+      ticking = false;
+    };
+    var onScroll = function () {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(updateBar);
+      }
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    updateBar();
+  }
+
+  /* ---------- Print: fold alle FAQ ud, og luk dem igen bagefter ---------- */
+  var reopened = [];
+  window.addEventListener("beforeprint", function () {
+    reopened = [];
+    document.querySelectorAll("details:not([open])").forEach(function (d) {
+      d.setAttribute("open", "");
+      reopened.push(d);
+    });
+  });
+  window.addEventListener("afterprint", function () {
+    reopened.forEach(function (d) { d.removeAttribute("open"); });
+    reopened = [];
+  });
 
   /* ---------- Årstal i footeren ---------- */
   var yearEl = document.getElementById("year");

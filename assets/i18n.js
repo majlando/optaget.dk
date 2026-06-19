@@ -83,6 +83,7 @@ window.I18N = {
     "d.t5.date": "Sidst i august",
     "d.t5.t": "Studiestart",
     "d.t5.d": "De fleste videregående uddannelser starter i slutningen af august eller begyndelsen af september.",
+    "d.sources": "Kilder: <a href=\"https://optagelse.dk\" target=\"_blank\" rel=\"noopener\">optagelse.dk</a> og <a href=\"https://www.ug.dk\" target=\"_blank\" rel=\"noopener\">UddannelsesGuiden (ug.dk)</a>. Bekræft altid de præcise datoer for dit ansøgningsår.",
 
     "ap.eyebrow": "Den praktiske del",
     "ap.h2": "Søg trin for trin på optagelse.dk",
@@ -125,6 +126,7 @@ window.I18N = {
     "foot.s2": "UddannelsesGuiden",
     "foot.s3": "tidligere kvotienter",
     "foot.note": "<strong>Bemærk:</strong> Optaget.dk er ikke en offentlig myndighed. Datoer og regler kan ændre sig — bekræft altid de gældende oplysninger på optagelse.dk, før du handler.",
+    "foot.updated": "Sidst opdateret juni 2026",
     "foot.toTop": "Til toppen ↑"
   },
 
@@ -211,6 +213,7 @@ window.I18N = {
     "d.t5.date": "Late August",
     "d.t5.t": "Studies begin",
     "d.t5.d": "Most higher-education programmes start in late August or early September.",
+    "d.sources": "Sources: <a href=\"https://optagelse.dk\" target=\"_blank\" rel=\"noopener\">optagelse.dk</a> and <a href=\"https://www.ug.dk\" target=\"_blank\" rel=\"noopener\">the Education Guide (ug.dk)</a>. Always confirm the exact dates for your application year.",
 
     "ap.eyebrow": "The practical part",
     "ap.h2": "Apply step by step on optagelse.dk",
@@ -253,6 +256,7 @@ window.I18N = {
     "foot.s2": "the Education Guide",
     "foot.s3": "past cut-offs",
     "foot.note": "<strong>Note:</strong> Optaget.dk is not a public authority. Dates and rules can change — always confirm the current information on optagelse.dk before acting.",
+    "foot.updated": "Last updated June 2026",
     "foot.toTop": "Back to top ↑"
   }
 };

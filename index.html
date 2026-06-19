@@ -63,6 +63,26 @@
         "inLanguage": "da-DK"
       },
       {
+        "@type": "HowTo",
+        "@id": "https://optaget.dk/#how-to-apply",
+        "name": "Sådan søger du ind på en videregående uddannelse i Danmark",
+        "description": "Trin for trin: sådan søger du ind via optagelse.dk — fra login med MitID til underskrift og svar.",
+        "inLanguage": "da-DK",
+        "totalTime": "PT1H",
+        "tool": [
+          { "@type": "HowToTool", "name": "MitID" },
+          { "@type": "HowToTool", "name": "optagelse.dk" }
+        ],
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Log ind med MitID", "text": "Gå til optagelse.dk og log ind. Dine eksamensresultater hentes typisk automatisk, hvis du har en dansk gymnasial eksamen.", "url": "https://optaget.dk/#trin" },
+          { "@type": "HowToStep", "position": 2, "name": "Find dine uddannelser", "text": "Søg uddannelserne frem og læs adgangskravene grundigt. Notér uddannelsens optagelsesområdenummer.", "url": "https://optaget.dk/#trin" },
+          { "@type": "HowToStep", "position": 3, "name": "Prioritér", "text": "Sæt uddannelserne i den rækkefølge, du helst vil ind på. Du bliver kun tilbudt din højest mulige prioritet — så sæt drømmestudiet øverst.", "url": "https://optaget.dk/#trin" },
+          { "@type": "HowToStep", "position": 4, "name": "Søg kvote 2 (hvis relevant)", "text": "Skal du vurderes i kvote 2, skriver du en motiveret ansøgning og uploader dokumentation for erfaring, ophold m.m. — inden 15. marts.", "url": "https://optaget.dk/#trin" },
+          { "@type": "HowToStep", "position": 5, "name": "Underskriv og send", "text": "Godkend og signér ansøgningen med MitID. En ansøgning, der ikke er underskrevet, tæller ikke. Du får en kvittering.", "url": "https://optaget.dk/#trin" },
+          { "@type": "HowToStep", "position": 6, "name": "Hold øje med din indbakke", "text": "Tjek beskeder på optagelse.dk frem til svardatoen — uddannelsen kan bede om mere dokumentation undervejs.", "url": "https://optaget.dk/#trin" }
+        ]
+      },
+      {
         "@type": "FAQPage",
         "@id": "https://optaget.dk/#faq",
         "inLanguage": "da-DK",
@@ -104,6 +124,7 @@
   </script>
 </head>
 <body>
+  <div class="reading-progress" aria-hidden="true"><span data-progress-bar></span></div>
   <a class="skip-link" href="#hovedindhold" data-i18n="a11y.skip">Spring til indhold</a>
 
   <header class="site-header" id="top">
@@ -329,6 +350,11 @@
             </div>
           </li>
         </ol>
+        <p class="section-source" data-i18n-html="d.sources">
+          Kilder: <a href="https://optagelse.dk" target="_blank" rel="noopener">optagelse.dk</a>
+          og <a href="https://www.ug.dk" target="_blank" rel="noopener">UddannelsesGuiden (ug.dk)</a>.
+          Bekræft altid de præcise datoer for dit ansøgningsår.
+        </p>
       </div>
     </section>
 
@@ -449,7 +475,7 @@
       </div>
     </div>
     <div class="container footer-bottom">
-      <p>© <span id="year">2026</span> optaget.dk</p>
+      <p>© <span id="year">2026</span> optaget.dk · <span data-i18n="foot.updated">Sidst opdateret juni 2026</span></p>
       <a href="#top" class="to-top" data-i18n="foot.toTop">Til toppen ↑</a>
     </div>
   </footer>

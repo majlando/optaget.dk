@@ -27,7 +27,7 @@
   --surface:    #fffdf9;
   --ink:        #211d17;
   --ink-soft:   #4a4339;
-  --muted:      #756b5d;
+  --muted:      #6c6253;
   --line:       #e7ddcd;
 
   --green:      #14563f;
@@ -35,6 +35,7 @@
   --green-tint: #e4efe8;
   --accent:     #d9603a;
   --accent-soft:#f6e3da;
+  --accent-text:#b8501f; /* mørkere coral til lille tekst (WCAG AA på lys baggrund) */
 
   --header-bg:  rgba(250, 246, 239, .82);
   --shadow: 0 1px 2px rgba(33,29,23,.04), 0 12px 32px -16px rgba(33,29,23,.18);
@@ -66,6 +67,7 @@
     --green-tint: #1e2c23;
     --accent:     #ed7e54;
     --accent-soft:#3a251b;
+    --accent-text:#ed7e54; /* coral består allerede AA på mørk baggrund */
     --header-bg:  rgba(22, 20, 14, .82);
     --shadow: 0 1px 2px rgba(0,0,0,.3), 0 16px 40px -18px rgba(0,0,0,.6);
     color-scheme: dark;
@@ -86,6 +88,7 @@
   --green-tint: #1e2c23;
   --accent:     #ed7e54;
   --accent-soft:#3a251b;
+  --accent-text:#ed7e54;
 
   --header-bg:  rgba(22, 20, 14, .82);
   --shadow: 0 1px 2px rgba(0,0,0,.3), 0 16px 40px -18px rgba(0,0,0,.6);
@@ -353,7 +356,7 @@ strong { font-weight: 600; }
 }
 .card-title {
   font-size: .82rem; font-weight: 600; letter-spacing: .06em;
-  text-transform: uppercase; color: var(--accent);
+  text-transform: uppercase; color: var(--accent-text);
   font-family: var(--sans); margin-bottom: 1rem;
 }
 .quick-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
@@ -387,7 +390,7 @@ strong { font-weight: 600; }
 .feature:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
 .feature-num {
   font-family: var(--serif); font-size: 1.05rem; font-weight: 600;
-  color: var(--accent); display: inline-block; margin-bottom: 14px;
+  color: var(--accent-text); display: inline-block; margin-bottom: 14px;
   letter-spacing: .02em;
 }
 .feature h3 { font-size: 1.18rem; margin-bottom: .35em; }
@@ -456,7 +459,7 @@ strong { font-weight: 600; }
 }
 .timeline-date .time {
   display: block; font-family: var(--sans); font-weight: 500;
-  font-size: .85rem; color: var(--accent);
+  font-size: .85rem; color: var(--accent-text);
 }
 .timeline-body h3 { font-size: 1.2rem; margin-bottom: .2em; }
 .timeline-item.is-next::before { box-shadow: 0 0 0 4px var(--accent-soft); }
@@ -464,7 +467,7 @@ strong { font-weight: 600; }
   display: inline-block; margin-left: 10px; vertical-align: middle;
   font-family: var(--sans); font-size: .66rem; font-weight: 600;
   letter-spacing: .04em; text-transform: uppercase;
-  color: var(--paper); background: var(--accent);
+  color: var(--paper); background: var(--accent-text);
   padding: 3px 9px; border-radius: 999px;
 }
 .timeline-body p { margin: 0; color: var(--ink-soft); font-size: .98rem; }
@@ -547,6 +550,22 @@ strong { font-weight: 600; }
 .footer-bottom a { color: #b6ad9f; text-decoration: none; }
 .footer-bottom a:hover { color: #fff; }
 
+/* Kildelinje under tidslinjen */
+.section-source {
+  margin: 28px 0 0; font-size: .9rem; color: var(--muted); max-width: 64ch;
+}
+
+/* Læse-progressbar */
+.reading-progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 3px;
+  z-index: 200; pointer-events: none; background: transparent;
+}
+.reading-progress > span {
+  display: block; height: 100%; width: 100%;
+  transform: scaleX(0); transform-origin: left center;
+  background: linear-gradient(90deg, var(--green), var(--accent));
+}
+
 /* =========================================================
    Responsive
    ========================================================= */
@@ -580,4 +599,49 @@ strong { font-weight: 600; }
 @media (max-width: 420px) {
   .hero-cta { flex-direction: column; align-items: stretch; }
   .btn { width: 100%; }
+}
+
+/* =========================================================
+   Print / PDF — ren, læsbar udgave (tvinger lyst tema)
+   ========================================================= */
+@media print {
+  :root, [data-theme="dark"], :root:not([data-theme]) {
+    --paper: #fff; --paper-2: #fff; --surface: #fff;
+    --ink: #000; --ink-soft: #1a1a1a; --muted: #444; --line: #bbb;
+    --green: #14563f; --green-deep: #0f4332; --green-tint: #eef4f0;
+    --accent: #a8431f; --accent-text: #a8431f; --accent-soft: #f3e3da;
+    --header-bg: #fff; --shadow: none;
+  }
+  /* Skjul interaktiv "chrome", der ikke giver mening på papir */
+  .site-header, .reading-progress, .next-deadline, .hero-cta, .hero-note,
+  .to-top, .closing { display: none !important; }
+
+  html, body { background: #fff !important; color: #000 !important; }
+  .section { padding: 18px 0 !important; }
+  .hero { padding: 8px 0 16px !important; background: #fff !important; }
+
+  .feature, .kvote-card, .step, .faq details, .hero-card {
+    border: 1px solid #ccc !important; background: #fff !important;
+    box-shadow: none !important; break-inside: avoid;
+  }
+  .kvote-card--accent { background: #fff !important; }
+  /* Fald-tilbage: vis FAQ-svar selv hvis JS ikke nåede at folde dem ud */
+  .faq details > *:not(summary) { display: block !important; }
+  h1, h2, h3 { break-after: avoid; }
+  .timeline, .steps, .feature-grid, .kvote-grid { break-inside: auto; }
+
+  .site-footer {
+    background: #fff !important; color: #000 !important;
+    border-top: 1px solid #bbb; padding-top: 18px !important;
+  }
+  .site-footer a, .footer-brand .brand-name, .footer-links h3,
+  .footer-links li, .footer-note p, .footer-bottom { color: #000 !important; }
+
+  a { color: #000 !important; text-decoration: underline; }
+  /* Vis fulde URL'er for eksterne links i brødteksten */
+  main a[href^="http"]::after {
+    content: " (" attr(href) ")"; font-size: .82em; color: #555;
+    word-break: break-all;
+  }
+  @page { margin: 16mm; }
 }

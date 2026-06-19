@@ -10,7 +10,7 @@ Prioriteret plan for den videre udvikling. Afkryds efterhånden.
 - [x] `404.html` i samme stil
 
 ## 2. Synlighed & SEO
-- [x] Strukturerede data (JSON-LD: `WebSite` + `FAQPage`)
+- [x] Strukturerede data (JSON-LD: `WebSite` + `HowTo` + `FAQPage`)
 - [x] `og:image` (delekort, 1200×630) + Twitter-card
 - [ ] Google Search Console: verificér domæne og indsend `sitemap.xml`
 - [ ] `hreflang` for DA/EN, hvis sprogene får separate URL'er
@@ -20,15 +20,19 @@ Prioriteret plan for den videre udvikling. Afkryds efterhånden.
 - [ ] Efter optagelse: SU, bolig, studiestart
 - [ ] Optagelsesprøver & samtaler (kvote 2 på nogle uddannelser)
 - [ ] Ordliste med fagord (adgangskvotient, standby, KOT …)
-- [ ] "Sidst opdateret"-dato + tydelige kildehenvisninger
+- [x] "Sidst opdateret"-dato + tydelige kildehenvisninger
 
 ## 4. Funktioner
 - [x] Nedtælling til næste frist (dynamisk dato) — chip i hero + "Næste frist"-badge i tidslinjen
+- [x] Læse-progressbar i toppen
 - [ ] Interaktiv ansøgnings-tjekliste (gemmes lokalt)
 - [ ] Del-knapper og evt. on-page-søgning
 
 ## 5. Teknik, privatliv & kvalitet
 - [x] Self-hostede fonts (ingen Google-kald — hurtigere og GDPR-sikkert)
+- [x] Tilgængeligheds-audit: WCAG AA-kontrast i begge temaer (+ `aria-current`)
+- [x] Print/PDF-venligt stylesheet (tvinger lyst tema, folder FAQ ud)
+- [x] Årlig vedligeholdelses-proces (`docs/VEDLIGEHOLD.md`)
 - [ ] Cookie-fri statistik (Plausible / Umami / Cloudflare Web Analytics)
 - [ ] Lighthouse-audit: ydeevne + tilgængelighed
 

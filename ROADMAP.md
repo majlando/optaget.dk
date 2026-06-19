@@ -2,11 +2,11 @@
 
 Prioriteret plan for den videre udvikling. Afkryds efterhånden.
 
-## 1. Live på domænet ✅ (under opsætning)
+## 1. Live på domænet ✅
 - [x] GitHub Pages-deploy via GitHub Actions (`.github/workflows/deploy.yml`)
 - [x] `CNAME` med `optaget.dk`
-- [ ] DNS pegt mod GitHub Pages hos domæneudbyder (A/AAAA + `www`-CNAME)
-- [ ] HTTPS slået til (når DNS er verificeret, sker automatisk)
+- [x] DNS pegt mod GitHub Pages (A/AAAA + `www`-CNAME) hos One.com
+- [x] HTTPS slået til (Let's Encrypt, Enforce HTTPS aktiv, http/www → https)
 - [x] `404.html` i samme stil
 
 ## 2. Synlighed & SEO

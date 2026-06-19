@@ -3,6 +3,23 @@
    Redaktionelt, roligt skandinavisk udtryk.
    ========================================================= */
 
+/* Self-hostede fonts (variable, latin-subset — dækker æøå).
+   Ingen kald til Google = hurtigere og GDPR-sikkert. */
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("fonts/fraunces-latin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("fonts/inter-latin.woff2") format("woff2");
+}
+
 :root {
   /* Lyst tema (standard) */
   --paper:      #faf6ef;

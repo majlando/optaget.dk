@@ -33,15 +33,73 @@
   <meta property="og:locale" content="da_DK" />
   <meta property="og:locale:alternate" content="en_GB" />
   <meta property="og:url" content="https://optaget.dk/" />
+  <meta property="og:image" content="https://optaget.dk/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Optaget.dk — din enkle guide til studieoptag i Danmark" />
+  <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
   <link rel="canonical" href="https://optaget.dk/" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin />
 
   <link rel="stylesheet" href="assets/styles.css" />
+
+  <!-- Strukturerede data: hjemmeside + FAQ (kan give rich results i Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://optaget.dk/#website",
+        "url": "https://optaget.dk/",
+        "name": "Optaget.dk",
+        "description": "En enkel, gratis guide til studieoptag i Danmark: kvote 1, kvote 2, vigtige datoer og sådan søger du på optagelse.dk.",
+        "inLanguage": "da-DK"
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://optaget.dk/#faq",
+        "inLanguage": "da-DK",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Hvad er adgangskvotienten?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Det er det laveste gennemsnit, der gav adgang til en uddannelse i kvote 1 sidste år. Den fastsættes ikke på forhånd — den afhænger af, hvor mange der søger, og hvilke snit de har. Tallet fra sidste år er kun en pejling." }
+          },
+          {
+            "@type": "Question",
+            "name": "Hvad betyder standby?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Et standbytilbud betyder, at du ikke fik en plads nu, men kommer forrest i køen, hvis en plads bliver ledig — ellers er du garanteret optagelse året efter, hvis du takker ja. Du skal aktivt acceptere standbypladsen." }
+          },
+          {
+            "@type": "Question",
+            "name": "Kan jeg søge både kvote 1 og kvote 2?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ja. Søger du i kvote 2 inden 15. marts, bliver du vurderet i begge kvoter automatisk. Det giver dig to chancer for at komme ind på samme uddannelse." }
+          },
+          {
+            "@type": "Question",
+            "name": "Hvad er specifikke adgangskrav?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Det er bestemte fag på bestemte niveauer (fx Matematik B eller Engelsk B), som du skal have bestået for at kunne optages. Nogle uddannelser kræver også en bestemt minimumskarakter i et fag eller et bestemt samlet snit." }
+          },
+          {
+            "@type": "Question",
+            "name": "Hvad hvis jeg ikke har en gymnasial eksamen?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Du kan ofte stadig komme i betragtning i kvote 2 på baggrund af en samlet vurdering, og nogle uddannelser tilbyder en optagelsesprøve. Mangler du enkelte fag, kan du tage dem som GSK (gymnasiale suppleringskurser) eller enkeltfag på HF." }
+          },
+          {
+            "@type": "Question",
+            "name": "Hvor mange uddannelser bør jeg søge?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Du kan søge op til 8. Det er en god idé at bruge flere prioriteter: et par ambitiøse ønsker øverst og mindst én realistisk mulighed længere nede, så du har et sikkerhedsnet." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#hovedindhold" data-i18n="a11y.skip">Spring til indhold</a>

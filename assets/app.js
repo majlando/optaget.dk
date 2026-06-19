@@ -151,6 +151,7 @@
   if (brand) {
     brand.addEventListener("click", function (e) {
       e.preventDefault();
+      if (typeof closeMenu === "function") closeMenu();
       var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
       // Fjern et evt. #-fragment fra URL'en

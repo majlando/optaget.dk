@@ -662,10 +662,11 @@ strong { font-weight: 600; }
   .section { padding: 18px 0 !important; }
   .hero { padding: 8px 0 16px !important; background: #fff !important; }
 
-  .feature, .kvote-card, .step, .faq details, .hero-card {
+  .feature, .kvote-card, .step, .faq details, .hero-card, .levels {
     border: 1px solid #ccc !important; background: #fff !important;
     box-shadow: none !important; break-inside: avoid;
   }
+  .gl-item { break-inside: avoid; }
   .kvote-card--accent { background: #fff !important; }
   /* Fald-tilbage: vis FAQ-svar selv hvis JS ikke nåede at folde dem ud */
   .faq details > *:not(summary) { display: block !important; }

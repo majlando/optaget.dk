@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- No-flash: sæt tema + sprog før render -->
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem("optaget-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.setAttribute("data-theme", t);
+
+        var l = localStorage.getItem("optaget-lang");
+        if (!l) {
+          var langs = navigator.languages || [navigator.language || "da"];
+          l = langs.some(function (x) { return x && x.toLowerCase().indexOf("da") === 0; }) ? "da" : "en";
+        }
+        document.documentElement.setAttribute("lang", l);
+      } catch (e) {}
+    })();
+  </script>
+
+  <title>Optaget.dk — Din enkle guide til studieoptag i Danmark</title>
+  <meta name="description" content="En enkel, gratis guide til at blive optaget på en videregående uddannelse i Danmark: kvote 1, kvote 2, vigtige datoer og sådan søger du trin for trin på optagelse.dk." />
+  <meta name="theme-color" content="#14563f" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#16140e" media="(prefers-color-scheme: dark)" />
+
+  <meta property="og:title" content="Optaget.dk — Din enkle guide til studieoptag" />
+  <meta property="og:description" content="Kvote 1 og 2, vigtige frister og sådan søger du trin for trin på optagelse.dk." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="da_DK" />
+  <meta property="og:locale:alternate" content="en_GB" />
+  <meta property="og:url" content="https://optaget.dk/" />
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="canonical" href="https://optaget.dk/" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#hovedindhold" data-i18n="a11y.skip">Spring til indhold</a>
+
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a class="brand" href="#top" aria-label="Optaget.dk">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">optaget<span class="brand-dot">.dk</span></span>
+      </a>
+
+      <div class="header-right">
+        <nav class="site-nav" aria-label="Hovedmenu">
+          <ul class="nav-list" id="nav-list">
+            <li><a href="#sadan-virker-det" data-i18n="nav.how">Sådan virker det</a></li>
+            <li><a href="#kvoter" data-i18n="nav.quotas">Kvote 1 &amp; 2</a></li>
+            <li><a href="#datoer" data-i18n="nav.dates">Datoer</a></li>
+            <li><a href="#trin" data-i18n="nav.apply">Søg trin for trin</a></li>
+            <li><a href="#faq" data-i18n="nav.faq">FAQ</a></li>
+          </ul>
+        </nav>
+
+        <div class="tools">
+          <div class="lang-switch" role="group" aria-label="Sprog / Language">
+            <button type="button" class="lang-btn" data-lang-set="da" aria-pressed="true">DA</button>
+            <button type="button" class="lang-btn" data-lang-set="en" aria-pressed="false">EN</button>
+          </div>
+
+          <button type="button" class="icon-btn theme-btn" data-theme-toggle
+                  aria-label="Skift mellem lys og mørk" data-i18n-aria="a11y.theme">
+            <svg class="ic ic-sun" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="4"/>
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            <svg class="ic ic-moon" viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+
+          <button class="icon-btn nav-toggle" aria-expanded="false" aria-controls="nav-list"
+                  aria-label="Åbn menu" data-i18n-aria="a11y.menu">
+            <span class="nav-toggle-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="hovedindhold">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <p class="eyebrow" data-i18n="hero.eyebrow">Gratis guide · opdateret til ansøgningsåret</p>
+          <h1 data-i18n-html="hero.h1">Bliv klar til at blive <span class="hl">optaget</span> på drømmestudiet.</h1>
+          <p class="lead" data-i18n="hero.lead">
+            At søge ind på en videregående uddannelse kan virke uoverskueligt.
+            Her får du det hele forklaret enkelt — kvote 1 og kvote 2,
+            de vigtige frister, og præcis hvad du skal gøre på optagelse.dk.
+          </p>
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#trin" data-i18n="hero.cta1">Kom i gang</a>
+            <a class="btn btn-ghost" href="#datoer" data-i18n="hero.cta2">Se de vigtige datoer</a>
+          </div>
+          <p class="hero-note" data-i18n="hero.note">Ingen login, ingen reklamer — bare en ærlig forklaring.</p>
+        </div>
+
+        <aside class="hero-card" aria-label="Hurtigt overblik">
+          <h2 class="card-title" data-i18n="hero.cardTitle">På 30 sekunder</h2>
+          <ul class="quick-list">
+            <li data-i18n-html="hero.q1"><strong>Hvor?</strong> Alle ansøgninger sker på <span class="nowrap">optagelse.dk</span> med MitID.</li>
+            <li data-i18n-html="hero.q2"><strong>Hvor mange?</strong> Du kan søge op til <strong>8 uddannelser</strong> i prioriteret rækkefølge.</li>
+            <li data-i18n-html="hero.q3"><strong>To veje ind:</strong> kvote 1 (dit snit) og kvote 2 (en helhedsvurdering).</li>
+            <li data-i18n-html="hero.q4"><strong>Svar:</strong> du får besked sidst i juli.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SÅDAN VIRKER DET -->
+    <section id="sadan-virker-det" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-i18n="how.eyebrow">Det store billede</p>
+          <h2 data-i18n="how.h2">Sådan virker optagelsen</h2>
+          <p class="section-intro" data-i18n-html="how.intro">
+            Optaget til de videregående uddannelser styres af <em>Den Koordinerede
+            Tilmelding</em> (KOT). Du søger ét sted — optagelse.dk — og systemet
+            sørger for, at du højst får tilbudt én plads: den højest prioriterede,
+            du kan komme ind på.
+          </p>
+        </header>
+
+        <div class="feature-grid">
+          <article class="feature">
+            <span class="feature-num">01</span>
+            <h3 data-i18n="how.f1.t">Vælg dine uddannelser</h3>
+            <p data-i18n="how.f1.d">Find op til 8 uddannelser og sæt dem i prioriteret rækkefølge. Prioritet 1 er dit førstevalg.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">02</span>
+            <h3 data-i18n="how.f2.t">Tjek adgangskravene</h3>
+            <p data-i18n-html="how.f2.d">Hver uddannelse har <strong>generelle</strong> og <strong>specifikke</strong> adgangskrav — fx bestemte fag på bestemte niveauer.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">03</span>
+            <h3 data-i18n="how.f3.t">Søg via kvote 1 eller 2</h3>
+            <p data-i18n="how.f3.d">Du bliver automatisk vurderet i kvote 1 på dit snit. Vil du også i kvote 2, sender du en ansøgning før 15. marts.</p>
+          </article>
+          <article class="feature">
+            <span class="feature-num">04</span>
+            <h3 data-i18n="how.f4.t">Få svar og sig ja</h3>
+            <p data-i18n="how.f4.d">Sidst i juli får du svar. Takker du ja til pladsen, er du optaget — og studiestart er typisk sidst i august.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- KVOTER -->
+    <section id="kvoter" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-i18n="q.eyebrow">De to veje ind</p>
+          <h2 data-i18n="q.h2">Kvote 1 og kvote 2</h2>
+          <p class="section-intro" data-i18n="q.intro">
+            De fleste uddannelser fordeler deres pladser i to puljer. Du behøver
+            ikke vælge — du kan sagtens søge gennem begge på samme tid.
+          </p>
+        </header>
+
+        <div class="kvote-grid">
+          <article class="kvote-card">
+            <div class="kvote-tag" data-i18n="q1.tag">Kvote 1</div>
+            <h3 data-i18n="q1.t">Dit eksamensgennemsnit afgør det</h3>
+            <p data-i18n-html="q1.body">
+              I kvote 1 tæller kun gennemsnittet fra din adgangsgivende eksamen
+              (STX, HHX, HTX, HF eller EUX). Pladserne gives til dem med de
+              højeste snit, ned til uddannelsens <em>adgangskvotient</em>.
+            </p>
+            <ul class="check-list">
+              <li data-i18n-html="q1.li1">Du bliver vurderet <strong>automatisk</strong> — ingen ekstra ansøgning.</li>
+              <li data-i18n="q1.li2">Har du et højt snit, er det ofte den nemmeste vej ind.</li>
+              <li data-i18n="q1.li3">Din kvotient kan stige med bonus for fx tidlig studiestart og ekstra A-fag.</li>
+            </ul>
+            <p class="kvote-foot" data-i18n="q1.foot">Bedst hvis: dit snit er over uddannelsens adgangskvotient.</p>
+          </article>
+
+          <article class="kvote-card kvote-card--accent">
+            <div class="kvote-tag" data-i18n="q2.tag">Kvote 2</div>
+            <h3 data-i18n="q2.t">Hele dig bliver vurderet</h3>
+            <p data-i18n="q2.body">
+              I kvote 2 ser uddannelsen på mere end karakterer: relevant
+              erhvervserfaring, højskole, udlandsophold, frivilligt arbejde,
+              en motiveret ansøgning — og på nogle studier en optagelsesprøve
+              eller samtale.
+            </p>
+            <ul class="check-list">
+              <li data-i18n-html="q2.li1">Du skal <strong>aktivt søge</strong> og uploade dokumentation før fristen.</li>
+              <li data-i18n="q2.li2">Den vej ind, hvis dit snit er lige under adgangskvotienten.</li>
+              <li data-i18n="q2.li3">Skriv en skarp, konkret motiveret ansøgning — den tæller.</li>
+            </ul>
+            <p class="kvote-foot" data-i18n="q2.foot">Bedst hvis: du har relevant erfaring eller et snit lidt under kravet.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- DATOER -->
+    <section id="datoer" class="section">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-i18n="d.eyebrow">Sæt kryds i kalenderen</p>
+          <h2 data-i18n="d.h2">De vigtige datoer</h2>
+          <p class="section-intro" data-i18n="d.intro">
+            Fristerne ligger nogenlunde fast år efter år. Tjek altid de præcise
+            datoer for dit ansøgningsår på optagelse.dk, før du planlægger.
+          </p>
+        </header>
+
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-date"><span data-i18n="d.t1.date">1. februar</span></div>
+            <div class="timeline-body">
+              <h3 data-i18n="d.t1.t">Ansøgningen åbner</h3>
+              <p data-i18n="d.t1.d">optagelse.dk åbner, så du kan begynde at oprette og forberede din ansøgning.</p>
+            </div>
+          </li>
+          <li class="timeline-item is-highlight">
+            <div class="timeline-date"><span data-i18n="d.t2.date">15. marts</span><span class="time" data-i18n="d.t2.time">kl. 12:00</span></div>
+            <div class="timeline-body">
+              <h3 data-i18n="d.t2.t">Frist for kvote 2</h3>
+              <p data-i18n="d.t2.d">Sidste chance for at søge i kvote 2, inkl. motiveret ansøgning og dokumentation. Misser du den, kan du stadig nå kvote 1.</p>
+            </div>
+          </li>
+          <li class="timeline-item is-highlight">
+            <div class="timeline-date"><span data-i18n="d.t3.date">5. juli</span><span class="time" data-i18n="d.t3.time">kl. 12:00</span></div>
+            <div class="timeline-body">
+              <h3 data-i18n="d.t3.t">Frist for kvote 1</h3>
+              <p data-i18n="d.t3.d">Den endelige ansøgningsfrist. Husk at underskrive og sende ansøgningen — det glemmer mange.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date"><span data-i18n="d.t4.date">28. juli</span></div>
+            <div class="timeline-body">
+              <h3 data-i18n="d.t4.t">Du får svar</h3>
+              <p data-i18n="d.t4.d">Svarene sendes ud. Du er enten optaget, på standby eller har fået afslag.</p>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-date"><span data-i18n="d.t5.date">Sidst i august</span></div>
+            <div class="timeline-body">
+              <h3 data-i18n="d.t5.t">Studiestart</h3>
+              <p data-i18n="d.t5.d">De fleste videregående uddannelser starter i slutningen af august eller begyndelsen af september.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- TRIN FOR TRIN -->
+    <section id="trin" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow" data-i18n="ap.eyebrow">Den praktiske del</p>
+          <h2 data-i18n="ap.h2">Søg trin for trin på optagelse.dk</h2>
+          <p class="section-intro" data-i18n="ap.intro">
+            Selve ansøgningen er ikke svær, når du ved, hvad rækkefølgen er.
+            Følg de seks trin herunder.
+          </p>
+        </header>
+
+        <ol class="steps">
+          <li class="step">
+            <h3 data-i18n="ap.s1.t">Log ind med MitID</h3>
+            <p data-i18n="ap.s1.d">Gå til optagelse.dk og log ind. Dine eksamensresultater hentes typisk automatisk, hvis du har en dansk gymnasial eksamen.</p>
+          </li>
+          <li class="step">
+            <h3 data-i18n="ap.s2.t">Find dine uddannelser</h3>
+            <p data-i18n="ap.s2.d">Søg uddannelserne frem og læs adgangskravene grundigt. Notér uddannelsens optagelsesområdenummer.</p>
+          </li>
+          <li class="step">
+            <h3 data-i18n="ap.s3.t">Prioritér</h3>
+            <p data-i18n="ap.s3.d">Sæt uddannelserne i den rækkefølge, du helst vil ind på. Du bliver kun tilbudt din højest mulige prioritet — så sæt drømmestudiet øverst.</p>
+          </li>
+          <li class="step">
+            <h3 data-i18n="ap.s4.t">Søg kvote 2 (hvis relevant)</h3>
+            <p data-i18n="ap.s4.d">Skal du vurderes i kvote 2, skriver du en motiveret ansøgning og uploader dokumentation for erfaring, ophold m.m. — inden 15. marts.</p>
+          </li>
+          <li class="step">
+            <h3 data-i18n="ap.s5.t">Underskriv og send</h3>
+            <p data-i18n="ap.s5.d">Godkend og signér ansøgningen med MitID. En ansøgning, der ikke er underskrevet, tæller ikke. Du får en kvittering.</p>
+          </li>
+          <li class="step">
+            <h3 data-i18n="ap.s6.t">Hold øje med din indbakke</h3>
+            <p data-i18n="ap.s6.d">Tjek beskeder på optagelse.dk frem til svardatoen — uddannelsen kan bede om mere dokumentation undervejs.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container container-narrow">
+        <header class="section-head">
+          <p class="eyebrow" data-i18n="faq.eyebrow">Det folk oftest spørger om</p>
+          <h2 data-i18n="faq.h2">Spørgsmål &amp; svar</h2>
+        </header>
+
+        <div class="faq">
+          <details>
+            <summary data-i18n="faq.q1.q">Hvad er adgangskvotienten?</summary>
+            <p data-i18n="faq.q1.a">Det er det laveste gennemsnit, der gav adgang til en uddannelse i kvote 1 sidste år. Den fastsættes ikke på forhånd — den afhænger af, hvor mange der søger, og hvilke snit de har. Tallet fra sidste år er kun en pejling.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q2.q">Hvad betyder standby?</summary>
+            <p data-i18n="faq.q2.a">Et standbytilbud betyder, at du ikke fik en plads nu, men kommer forrest i køen, hvis en plads bliver ledig — ellers er du garanteret optagelse året efter, hvis du takker ja. Du skal aktivt acceptere standbypladsen.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q3.q">Kan jeg søge både kvote 1 og kvote 2?</summary>
+            <p data-i18n="faq.q3.a">Ja. Søger du i kvote 2 inden 15. marts, bliver du vurderet i begge kvoter automatisk. Det giver dig to chancer for at komme ind på samme uddannelse.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q4.q">Hvad er specifikke adgangskrav?</summary>
+            <p data-i18n="faq.q4.a">Det er bestemte fag på bestemte niveauer (fx Matematik B eller Engelsk B), som du skal have bestået for at kunne optages. Nogle uddannelser kræver også en bestemt minimumskarakter i et fag eller et bestemt samlet snit.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q5.q">Hvad hvis jeg ikke har en gymnasial eksamen?</summary>
+            <p data-i18n="faq.q5.a">Du kan ofte stadig komme i betragtning i kvote 2 på baggrund af en samlet vurdering, og nogle uddannelser tilbyder en optagelsesprøve. Mangler du enkelte fag, kan du tage dem som GSK (gymnasiale suppleringskurser) eller enkeltfag på HF.</p>
+          </details>
+          <details>
+            <summary data-i18n="faq.q6.q">Hvor mange uddannelser bør jeg søge?</summary>
+            <p data-i18n="faq.q6.a">Du kan søge op til 8. Det er en god idé at bruge flere prioriteter: et par ambitiøse ønsker øverst og mindst én realistisk mulighed længere nede, så du har et sikkerhedsnet.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section closing">
+      <div class="container container-narrow closing-inner">
+        <h2 data-i18n="close.h2">Klar til at søge?</h2>
+        <p data-i18n="close.p">
+          Når du har styr på kvoter, krav og datoer, er resten bare at få det gjort.
+          Gå til den officielle portal og kom i gang i god tid.
+        </p>
+        <a class="btn btn-primary" href="https://optagelse.dk" target="_blank" rel="noopener" data-i18n="close.btn">Åbn optagelse.dk</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <span class="brand-name">optaget<span class="brand-dot">.dk</span></span>
+        <p data-i18n="foot.desc">En uafhængig, gratis guide til studieoptag i Danmark.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Officielle kilder">
+        <h3 data-i18n="foot.sources">Officielle kilder</h3>
+        <ul>
+          <li><a href="https://optagelse.dk" target="_blank" rel="noopener">optagelse.dk</a> — <span data-i18n="foot.s1">søg ind</span></li>
+          <li><a href="https://www.ug.dk" target="_blank" rel="noopener">ug.dk</a> — <span data-i18n="foot.s2">UddannelsesGuiden</span></li>
+          <li><a href="https://adgangskvotienter.dk" target="_blank" rel="noopener">adgangskvotienter.dk</a> — <span data-i18n="foot.s3">tidligere kvotienter</span></li>
+        </ul>
+      </nav>
+
+      <div class="footer-note">
+        <p data-i18n-html="foot.note">
+          <strong>Bemærk:</strong> Optaget.dk er ikke en offentlig myndighed.
+          Datoer og regler kan ændre sig — bekræft altid de gældende oplysninger
+          på optagelse.dk, før du handler.
+        </p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>© <span id="year">2026</span> optaget.dk</p>
+      <a href="#top" class="to-top" data-i18n="foot.toTop">Til toppen ↑</a>
+    </div>
+  </footer>
+
+  <script src="assets/i18n.js"></script>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>

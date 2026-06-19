@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://optaget.dk/sitemap.xml
